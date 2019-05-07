@@ -11,7 +11,13 @@ Resources:
       Description: 'Lambda function for CD Demo'
       MemorySize: 128
       Timeout: 30
-      Role: 'arn:aws:iam::amuranal:role/MyLambdaRole'
+      Policies: 
+        Version:  "2012-10-17" 
+        Statement: 
+          - Effect: Allow 
+            Action: 
+              - 's3:*' 
+            Resource: '*'
       Events:
         getAZsAPI:
           Type: Api
@@ -20,4 +26,4 @@ Resources:
             Method: get
       Environment:
         Variables:
-          REGION: ap-southeast-2
+          environment: dev
