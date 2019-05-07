@@ -2,6 +2,13 @@ version: 0.1
 phases:
   install:
     commands:
+      # Upgrade AWS CLI to the latest version  
+      - pip install --upgrade awscli  
+      - pip install jinja2 --target ./LambdaCode  
+      - pip install requests --target ./LambdaCode  
+      - pip install boto3 --target ./LambdaCode 
+  build:
+    commands:
       - aws cloudformation package --template-file samTemplate.yaml --s3-bucket amuranal-lambda-bucket --output-template-file outputSamTemplate.yaml
 artifacts:
   type: zip
