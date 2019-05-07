@@ -26,4 +26,4 @@ Resources:
             Method: get
       Environment:
         Variables:
-          environment: dev
+          REGION: ap-south-1
